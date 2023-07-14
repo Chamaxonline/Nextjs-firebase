@@ -6,7 +6,7 @@ import {
 import firebase_app from '@/firebase/config';
 
 const auth = getAuth(firebase_app);
-
+debugger
 export const AuthContext = React.createContext({});
 
 export const useAuthContext = () => React.useContext(AuthContext);
@@ -14,7 +14,7 @@ export const useAuthContext = () => React.useContext(AuthContext);
 export const AuthContextProvider = ({
     children,
 }) => {
-    const [user, setUser] = React.useState(null);
+    const [currentUser, setUser] = React.useState(null);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -33,7 +33,7 @@ export const AuthContextProvider = ({
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user }}>
+        <AuthContext.Provider value={{ currentUser }}>
             {loading ? <div>Loading...</div> : children}
         </AuthContext.Provider>
     );

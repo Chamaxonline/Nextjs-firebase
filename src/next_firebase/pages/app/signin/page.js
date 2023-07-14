@@ -10,7 +10,7 @@ function Page() {
 
     const handleForm = async (event) => {
         event.preventDefault()
-
+debugger
         const { result, error } = await signIn(email, password);
 
         if (error) {
